@@ -27,6 +27,9 @@ function elm(type, attr = {}, ...children){
   for(let key in attr){
     if(key.startsWith('data-')){
       element.setAttribute(key,attr[key]);
+    }else if(key.startsWith('on')){
+      let eventType = key.replace('on', '').toLowerCase();
+      element.addEventListener(eventType, attr[key]);
     }else{
       element[key] = attr[key];
     }
@@ -51,7 +54,7 @@ function createUI(movies, root){
     }, elm("span", {}, movie.name), elm("button", {
       className: "btn",
       idx: idx,
-      onclick: handleClick
+      onClick: handleClick
     }, movie.watched ? "Watched" : "To Watch"));
     /*
     let li = document.createElement('li');
@@ -63,7 +66,6 @@ function createUI(movies, root){
     button.innerText = movie.watched ? "Watched" : "To Watch";
     button.idx = idx;
     */
-    console.log(li);
     root.append(li);
   })
 }
