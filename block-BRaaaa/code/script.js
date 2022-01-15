@@ -2,14 +2,6 @@ let input = document.querySelector('input');
 let rootElm = document.querySelector('ul');
 
 let allMovies = [
-  {
-    name: "Inception",
-    watched: false,
-  },
-  {
-    name: "Mad Max",
-    watched: false,
-  }
 ];
 
 input.addEventListener('keyup', (event) => {
