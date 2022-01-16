@@ -17,20 +17,20 @@ input.addEventListener('keyup', (event) => {
 })
 
 function handleClick(event){
-  let idx = event.target.idx;
-  allMovies[idx].watched = !allMovies[idx].watched;
+  let id = event.target.id;
+  allMovies[id].watched = !allMovies[id].watched;
   createUI(allMovies, rootElm);
 }
 
 let elm = React.createElement;
 
 function createUI(movies, root){
-  let movieList = movies.map((movie, idx) => {
+  let movieList = movies.map((movie, i) => {
     let li = elm("li", {
       className: "movie-list-item"
     }, elm("span", {}, movie.name), elm("button", {
       className: "btn",
-      idx: idx,
+      id: i,
       onClick: handleClick
     }, movie.watched ? "Watched" : "To Watch"));
     return li;
