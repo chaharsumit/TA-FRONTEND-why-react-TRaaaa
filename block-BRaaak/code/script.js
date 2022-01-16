@@ -38,33 +38,24 @@ let articles = [
 ];
 let root = document.querySelector('section');
 
-let Card = (props) => {
-  console.log(props);
-  return(
-    <>
+let Card = (props) => (
       <article className="card flex">
         <div className="image-container">
-          <img src={props.articles.imageURL} alt="Image" />
+          <img src={props.article.imageURL} alt="Image" />
           <div className="circle-parent">
-            <div className="circle flex">{props.articles.date.getDate()}<br />{months[props.articles.date.getMonth()]}</div>
+            <div className="circle flex">{props.article.date.getDate()}<br />{months[props.article.date.getMonth()]}</div>
           </div>
-          <div className="rectangle">{props.articles.category}</div>
+          <div className="rectangle">{props.article.category}</div>
         </div>
-        <h1>{props.articles.title}</h1>
-        <h4>{props.articles.subTitle}</h4>
-        <p>{props.articles.description}</p>
-        <span><i className="fas fa-comments"></i> {props.articles.comments} comments</span>
+        <h1>{props.article.title}</h1>
+        <h4>{props.article.subTitle}</h4>
+        <p>{props.article.description}</p>
+        <span><i className="fas fa-comments"></i> {props.article.comments} comments</span>
       </article>
-    </>
-  );
-};
+);
 
-let articleCards = (
-  <>
-    <Card article={articles[0]} />
-    <Card article={articles[1]} />
-    <Card article={articles[2]} />
-  </>
-)
+function ArticleCards(){
+  return articles.map(article => <Card article={article}/>);
+}
 
-ReactDOM.render(articleCards, root);
+ReactDOM.render(<ArticleCards />, root);
