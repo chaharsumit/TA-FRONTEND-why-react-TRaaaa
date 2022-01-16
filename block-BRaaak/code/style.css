@@ -57,9 +57,10 @@ img{
 }
 .container{
   height: 100vh;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
+  flex-wrap: wrap;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
@@ -69,7 +70,7 @@ img{
 }
 .card{
   background-color: white;
-  height: fit-content;
+  height: 600px;
   width: 350px;
   flex-direction: column;
   border-radius: 0.2rem;
