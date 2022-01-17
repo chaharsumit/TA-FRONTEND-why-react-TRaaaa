@@ -1,0 +1,15 @@
+body{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1{
+  color: tomato;
+  font-size: 2rem;
+  text-align: center;
+}
+
+ul{
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
