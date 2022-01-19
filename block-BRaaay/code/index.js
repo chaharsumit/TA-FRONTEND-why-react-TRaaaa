@@ -157,29 +157,37 @@ let colors = {
   ]
 }
 
-for(let key in colors){
-  console.log(colors[key]);
-};
-
-
-function Parent(){
-  return (
-    <>
-    </>
-  )
+function Colors(){
+  return Object.keys(colors).map(key => <Color colorName={key} allColors={colors[key]} />);
 }
 
-function Col_left(props){
+function Color(props){
   return (
-    <div className="col-left flex">
-      <h2></h2>
-    </div>
-  )
+    <article class="parent flex">
+      <div class="col-left">
+        <h2>{props.colorName}</h2>
+        <p>colors.{props.colorName}</p>
+      </div>
+      <div class="col-right flex">
+        {
+          props.allColors.map((color, index) => (
+            <div class="colored-div-container flex">
+              <div class="colored-div-box" style={{background: color}}></div>
+              <div class="colored-div-info flex">
+                <h4>{index === 0 ? 50 : (100 * index)}</h4>
+                <p>{color}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </article>
+  );
 }
 
 function App(){
   return (
-    <h1>hello world!</h1>
+    <Colors />
   );
 }
 ReactDOM.render(<App />, document.getElementById('root'));
